@@ -8,6 +8,9 @@ const initialState: PeopleState = {
     loading: false,
     error: undefined,
     id: 0,
+    repo: {},
+    repoLoading: false,
+    repoError: undefined,
 }
 
 export const peopleReducer = (state: PeopleState = initialState, action: PeopleAction) => {
@@ -25,8 +28,14 @@ export const peopleReducer = (state: PeopleState = initialState, action: PeopleA
             return {...state, pageNumber: action.payload}    
         case PeopleActionTypes.SET_SEARCH_PEOPLE:
             return {...state, search: action.payload, loading: true, error: undefined}
+
+
         case PeopleActionTypes.FETCH_REPO_PAGE:
-            return {...state, id: action.payload, loading: true, error: undefined}  
+            return {...state, id: action.payload, repoLoading: true, error: undefined}
+        case PeopleActionTypes.FETCH_REPO_SUCCESS:
+            return {...state, repo: action.payload, repoLoading: false, repoError: undefined}
+        case PeopleActionTypes.FETCH_REPO_ERROR:
+            return {...state, repoLoading: false, repoError: action.payload}
         default:
             return state
 

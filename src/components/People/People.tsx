@@ -9,8 +9,6 @@ import PeopleSearch from '../Search/PeopleSearch'
 const People = () => {
     const dispatch: any = useDispatch();
     const {people, loading, error, pageNumber, peopleCount} = useAppSelector(state => state.people)
-    console.log(people);
-    console.log(peopleCount);      
 
   return (
     <div>
@@ -25,7 +23,7 @@ const People = () => {
         )}
         
         {!error && (
-            people.map((people) => {
+            people.map((people: any) => {
                 return <PeopleCard key={people.id} people={people}/>
             })
         )} 

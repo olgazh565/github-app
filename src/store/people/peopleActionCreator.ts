@@ -1,4 +1,15 @@
-import { FetchPeopleAction, FetchPeopleActionError, FetchPeopleActionSuccess, FetchRepoPage, IPeople, PeopleActionTypes, SetPeopleCount, SetPeoplePage, SetSearchPeople } from "./types";
+import {
+    FetchPeopleAction,
+    FetchPeopleActionError,
+    FetchPeopleActionSuccess, FetchRepoActionError,
+    FetchRepoActionSuccess,
+    FetchRepoPage,
+    IPeople,
+    PeopleActionTypes,
+    SetPeopleCount,
+    SetPeoplePage,
+    SetSearchPeople
+} from "./types";
 
 export const fetchPeople = (): FetchPeopleAction => {
     return {
@@ -39,5 +50,17 @@ export const fetchRepoPage = (id: number): FetchRepoPage => {
     return {
         type: PeopleActionTypes.FETCH_REPO_PAGE,
         payload: id
+    }
+}
+export const fetchRepoSuccess = (data: any): FetchRepoActionSuccess => {
+    return {
+        type: PeopleActionTypes.FETCH_REPO_SUCCESS,
+        payload: data
+    }
+}
+export const fetchRepoError = (errorMessage: string | undefined): FetchRepoActionError => {
+    return {
+        type: PeopleActionTypes.FETCH_REPO_ERROR,
+        payload: errorMessage
     }
 }

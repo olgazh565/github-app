@@ -5,7 +5,10 @@ export enum PeopleActionTypes {
     SET_PEOPLE_COUNT = 'SET_PEOPLE_COUNT',
     SET_PEOPLE_PAGE = 'SET_PEOPLE_PAGE',
     SET_SEARCH_PEOPLE = 'SET_SEARCH_PEOPLE',
-    FETCH_REPO_PAGE = 'FETCH_REPO_PAGE'
+
+    FETCH_REPO_PAGE = 'FETCH_REPO_PAGE',
+    FETCH_REPO_SUCCESS = 'FETCH_REPO_SUCCESS',
+    FETCH_REPO_ERROR = 'FETCH_REPO_ERROR'
 }
 export interface IPeople {
     id: number,
@@ -29,7 +32,10 @@ export interface PeopleState {
     search: string,
     loading: boolean,
     error: string | undefined,  
-    id: number,  
+    id: number,
+    repo: any,
+    repoLoading: boolean,
+    repoError: string | undefined,
 }
 
 export interface FetchPeopleAction {
@@ -59,6 +65,15 @@ export interface FetchRepoPage {
     type: PeopleActionTypes.FETCH_REPO_PAGE,
     payload: number
 }
+export interface FetchRepoActionSuccess {
+    type: PeopleActionTypes.FETCH_REPO_SUCCESS,
+    payload: any
+}
+export interface FetchRepoActionError {
+    type: PeopleActionTypes.FETCH_REPO_ERROR,
+    payload: string | undefined
+}
+
 
 export type PeopleAction = 
 FetchPeopleAction 
@@ -68,3 +83,5 @@ FetchPeopleAction
 | SetPeoplePage
 | SetSearchPeople
 | FetchRepoPage
+| FetchRepoActionError
+| FetchRepoActionSuccess

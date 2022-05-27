@@ -8,16 +8,12 @@ import { fetchRepoPageOperation } from '../../store/people/fetchPeopleDataOperat
 const PeoplePage = () => {
 
     const {id} = useParams();
-    const {people, id: anotherID} = useAppSelector(state => state.people)
+    const {people, id: anotherID, repo} = useAppSelector(state => state.people)
     const dispatch: any = useDispatch();
           
     useEffect(() => {
-        
-        dispatch(fetchRepoPageOperation(Number(id)))       
-        console.log(Number(id));
-        
-             
-    }, [id])     
+        dispatch(fetchRepoPageOperation(Number(id)))
+    }, [id])
        
   
     // const repo = useMemo(() => {
@@ -36,12 +32,6 @@ const PeoplePage = () => {
 
 
     // const repo = people[anotherID];
-
-    console.log(people);
-    console.log(id);
-    console.log(anotherID);
-    console.log(people[anotherID]);
-    console.log(people[Number(id)]);
 
     return (
         <div>

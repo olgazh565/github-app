@@ -1,4 +1,4 @@
-import { FetchPeopleAction, FetchPeopleActionError, FetchPeopleActionSuccess, IPeople, PeopleActionTypes, SetPeopleCount, SetPeoplePage, SetSearchPeople } from "./types";
+import { FetchPeopleAction, FetchPeopleActionError, FetchPeopleActionSuccess, FetchRepoPage, IPeople, PeopleActionTypes, SetPeopleCount, SetPeoplePage, SetSearchPeople } from "./types";
 
 export const fetchPeople = (): FetchPeopleAction => {
     return {
@@ -33,5 +33,11 @@ export const setSearchPeople = (search: string): SetSearchPeople => {
     return {
         type: PeopleActionTypes.SET_SEARCH_PEOPLE,
         payload: search
+    }
+}
+export const fetchRepoPage = (id: number): FetchRepoPage => {
+    return {
+        type: PeopleActionTypes.FETCH_REPO_PAGE,
+        payload: id
     }
 }

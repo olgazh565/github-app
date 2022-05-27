@@ -6,7 +6,8 @@ const initialState: PeopleState = {
     search: "",
     peopleCount: 0,
     loading: false,
-    error: undefined
+    error: undefined,
+    id: 0,
 }
 
 export const peopleReducer = (state: PeopleState = initialState, action: PeopleAction) => {
@@ -24,6 +25,8 @@ export const peopleReducer = (state: PeopleState = initialState, action: PeopleA
             return {...state, pageNumber: action.payload}    
         case PeopleActionTypes.SET_SEARCH_PEOPLE:
             return {...state, search: action.payload, loading: true, error: undefined}
+        case PeopleActionTypes.FETCH_REPO_PAGE:
+            return {...state, id: action.payload, loading: true, error: undefined}  
         default:
             return state
 

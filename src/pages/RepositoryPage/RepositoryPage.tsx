@@ -1,7 +1,7 @@
 import { Card, Space } from 'antd'
 import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux';
-import { Link, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { useAppSelector } from '../../hooks/useAppSelector';
 import { fetchContributorsOperation } from '../../store/contributors/fetchContributorsOperation';
 import { fetchRepoPageOperation } from '../../store/repository/fetchRepoOperation';

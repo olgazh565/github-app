@@ -1,13 +1,13 @@
 import apiClient from "./apiClient";
 
 class SwapiService {
-    getAllPeople(page: number = 1) {
-        return apiClient().get('search/repositories?q=stars:>1&order=star&per_page=10', {
+    getRepositories(page: number) {
+        return apiClient().get(`/search/repositories?q=stars:>1&order=star&per_page=10`, {
             params: {page}
         }).then(resp => resp.data)        
     }
-    searchPeople(page: number = 1, search: string = "") {
-        return apiClient().get(`search/repositories?q=${search}&order=star&per_page=10`, {
+    searchRepositories(page: number, search: string = "") {
+        return apiClient().get(`search/repositories?q=${search}+in:name&sort=stars&per_page=10`, {
             params: {page, search}
         }).then(resp => resp.data)        
     }
@@ -16,6 +16,12 @@ class SwapiService {
             params: {id}
         }).then(resp => resp.data)        
     }
+    getContributors(id: number) {
+        return apiClient().get(`repositories/${id}/contributors`, {
+            params: {id}
+        }).then(resp => resp.data)        
+    }
+    
 }
 
 export default new SwapiService();

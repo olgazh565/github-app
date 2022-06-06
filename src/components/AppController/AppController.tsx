@@ -1,34 +1,31 @@
 import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Route, Routes, useParams } from 'react-router-dom'
 import { useAppSelector } from '../../hooks/useAppSelector'
-import AllPeoplePage from '../../pages/AllPeoplePage/AllPeoplePage'
-import HomePage from '../../pages/HomePage/HomePage'
 import NotFoundPage from '../../pages/NotFoundPage/NotFoundPage'
-import PeoplePage from '../../pages/PeoplePage/PeoplePage'
-import { fetchPeopleDataOperation, searchPeopleDataOperation } from '../../store/people/fetchPeopleDataOperation'
+import RepositoryPage from '../../pages/RepositoryPage/RepositoryPage'
+import { fetchRepositoriesOperation, searchRepositoriesOperation } from '../../store/repositories/fetchRepositoresOperation'
+import RepositoriesPage from '../../pages/RepositoriesPage/RepositoriesPage'
 
 const AppController = () => {
 
     const dispatch: any = useDispatch();
-    const {pageNumber, search} = useAppSelector(state => state.people)
+    const {pageNumber, search} = useAppSelector(state => state.repositories)       
 
     useEffect(() => {
         if (search.length) {
-            dispatch(searchPeopleDataOperation(pageNumber, search))
-
+            dispatch(searchRepositoriesOperation(pageNumber, search))
+       
         } else {
-            dispatch(fetchPeopleDataOperation(pageNumber))  
-        }
-             
+            dispatch(fetchRepositoriesOperation(pageNumber))
+        }             
     }, [pageNumber, search])
 
   return (
     <BrowserRouter>
         <Routes>
-            <Route path={'/'} element={<HomePage />} />
-            <Route path={'/people'} element={<AllPeoplePage />} />
-            <Route path={'/people/:id'} element={<PeoplePage />} />
+            <Route path={'/'} element={<RepositoriesPage />} />
+            <Route path={'/repository/:id'} element={<RepositoryPage />} />
             <Route path={'/'} element={<NotFoundPage />} />
         </Routes>
     </BrowserRouter>

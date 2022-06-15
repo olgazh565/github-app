@@ -1,4 +1,4 @@
-import SwapiService from "../../services/swapiService/SwapiService"
+import GithubService from "../../services/swapiService/GithubService"
 import {
     fetchRepoError,
     fetchRepoPage,
@@ -9,7 +9,7 @@ export const fetchRepoPageOperation = (id: number) => async (dispatch: any) => {
     console.log(1)
     try {
         dispatch(fetchRepoPage(id))
-        const resp: any = await SwapiService.getRepoPage(id)
+        const resp: any = await GithubService.getRepoPage(id)
         
         // console.log(resp);  
         dispatch(fetchRepoSuccess(resp))        

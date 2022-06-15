@@ -1,4 +1,10 @@
-.site-card-border-less-wrapper {
+.card {
     padding: 30px;
     background: #ececec;
   }
+.card-container{
+    display: flex;
+    justify-content: center; 
+    width: 85%;
+    margin: 0 auto;
+} 

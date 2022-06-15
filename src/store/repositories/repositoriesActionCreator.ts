@@ -1,4 +1,5 @@
 import {
+    ClearSearchData,
     FetchRepositoriesAction,
     FetchRepositoriesActionError,
     FetchRepositoriesActionSuccess,
@@ -42,6 +43,11 @@ export const setSearchRepositories = (search: string): SetSearchRepositories => 
     return {
         type: RepositoriesActionTypes.SET_SEARCH_REPOSITORIES,
         payload: search
+    }
+}
+export const clearSearchData = (): ClearSearchData => {
+    return {
+        type: RepositoriesActionTypes.CLEAR_SEARCH_DATA       
     }
 }
 

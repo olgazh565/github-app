@@ -15,7 +15,8 @@ export const contributorsReducer = (state: ContributorsState = initialState, act
             return {...state, contributors: action.payload, loading: false, error: undefined} 
         case ContributorsActionTypes.FETCH_CONTRIBUTORS_ERROR:
             return {...state, loading: false, error: action.payload}
-
+        case ContributorsActionTypes.CLEAR_CONTRIBUTORS_DATA:
+            return {...state, contributors: []} 
         default:
             return state
     }        

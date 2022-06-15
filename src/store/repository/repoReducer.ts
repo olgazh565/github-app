@@ -15,7 +15,9 @@ export const repoReducer = (state: RepoState = initialState, action: RepoAction)
         case RepoActionTypes.FETCH_REPO_SUCCESS:
             return {...state, repo: action.payload, repoLoading: false, repoError: undefined}
         case RepoActionTypes.FETCH_REPO_ERROR:
-            return {...state, repoLoading: false, repoError: action.payload}      
+            return {...state, repoLoading: false, repoError: action.payload}   
+        case RepoActionTypes.CLEAR_REPO_DATA:
+            return {...state, id: 0, repo: {}}    
         default:
             return state
     }

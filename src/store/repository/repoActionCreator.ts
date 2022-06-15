@@ -1,4 +1,5 @@
 import {
+    ClearRepoData,
     FetchRepoActionError,
     FetchRepoActionSuccess,
     FetchRepoPage,
@@ -22,5 +23,10 @@ export const fetchRepoError = (errorMessage: string | undefined): FetchRepoActio
     return {
         type: RepoActionTypes.FETCH_REPO_ERROR,
         payload: errorMessage
+    }
+}
+export const clearRepoData = (): ClearRepoData => {
+    return {
+        type: RepoActionTypes.CLEAR_REPO_DATA
     }
 }

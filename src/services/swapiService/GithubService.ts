@@ -1,6 +1,6 @@
 import apiClient from "./apiClient";
 
-class SwapiService {
+class GithubService {
     getRepositories(page: number) {
         return apiClient().get(`/search/repositories?q=stars:>1&order=star&per_page=10`, {
             params: {page}
@@ -24,4 +24,4 @@ class SwapiService {
     
 }
 
-export default new SwapiService();
+export default new GithubService();

@@ -1,10 +1,11 @@
-import { Pagination, Space, Spin } from 'antd'
+import { Pagination, Spin } from 'antd'
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useAppSelector } from '../../hooks/useAppSelector'
 import { setRepositoriesPage } from '../../store/repositories/repositoriesActionCreator'
 import RepositoriesTable from '../../components/RepositoriesTable/RepositoriesTable'
 import RepositoriesSearch from '../../components/Search/RepositoriesSearch'
+import './RepositoriesPage.css'
 
 const RepositoriesPage = () => {
     const dispatch: any = useDispatch();
@@ -13,14 +14,14 @@ const RepositoriesPage = () => {
 
   return (
     <div>
-        <h1 style={{textAlign:'center'}}>Github Dashboard</h1>
+        <h1 style={{textAlign:'center', paddingTop: '15px'}}>Github Dashboard</h1>
 
         <RepositoriesSearch />
 
         {loading && (
-            <Space size={"large"}>
-                <Spin size={"large"}/>
-            </Space>
+            <div className="spin">
+                <Spin style={{textAlign: 'center'}} size={"large"}/>
+            </div>
         )}
         
         {!error && 

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
-import { BrowserRouter, Route, Routes, useParams } from 'react-router-dom'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { useAppSelector } from '../../hooks/useAppSelector'
 import NotFoundPage from '../../pages/NotFoundPage/NotFoundPage'
 import RepositoryPage from '../../pages/RepositoryPage/RepositoryPage'
@@ -26,7 +26,7 @@ const AppController = () => {
         <Routes>
             <Route path={'/'} element={<RepositoriesPage />} />
             <Route path={'/repository/:id'} element={<RepositoryPage />} />
-            <Route path={'/'} element={<NotFoundPage />} />
+            <Route path={'*'} element={<NotFoundPage />} />
         </Routes>
     </BrowserRouter>
   )

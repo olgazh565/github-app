@@ -3,7 +3,8 @@ import {
     FetchContributorsError,
     FetchContributorsSuccess,
     ContributorsActionTypes,
-    Icontributors
+    Icontributors,
+    ClearContributorsData
 } from "./contributorsTypes";
 
 export const fetchContributors = (): FetchContributors => {
@@ -21,5 +22,10 @@ export const fetchContributorsError = (errorNessage: string | undefined): FetchC
     return {
         type: ContributorsActionTypes.FETCH_CONTRIBUTORS_ERROR,
         payload: errorNessage
+    }
+}
+export const clearContributorsData = (): ClearContributorsData => {
+    return {
+        type: ContributorsActionTypes.CLEAR_CONTRIBUTORS_DATA
     }
 }

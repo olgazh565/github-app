@@ -4,7 +4,8 @@ export enum RepositoriesActionTypes {
     FETCH_REPOSITORIES_ERROR = 'FETCH_REPOSITORIES_ERROR',
     SET_REPOSITORIES_COUNT = 'SET_REPOSITORIES_COUNT',
     SET_REPOSITORIES_PAGE = 'SET_REPOSITORIES_PAGE',
-    SET_SEARCH_REPOSITORIES = 'SET_SEARCH_REPOSITORIES'  
+    SET_SEARCH_REPOSITORIES = 'SET_SEARCH_REPOSITORIES',
+    CLEAR_SEARCH_DATA = 'CLEAR_SEARCH_DATA' 
 }
 export interface IRepositories {
     name: string,
@@ -44,6 +45,9 @@ export interface SetSearchRepositories {
     type: RepositoriesActionTypes.SET_SEARCH_REPOSITORIES,
     payload: string
 }
+export interface ClearSearchData {
+    type: RepositoriesActionTypes.CLEAR_SEARCH_DATA,    
+}
 export type RepositoriesAction = 
 FetchRepositoriesAction 
 | FetchRepositoriesActionSuccess 
@@ -51,4 +55,5 @@ FetchRepositoriesAction
 | SetRepositoriesCount
 | SetRepositoriesPage
 | SetSearchRepositories
+| ClearSearchData
 

@@ -1,5 +1,5 @@
 import { Space, Table } from 'antd'
-import { StarOutlined } from '@ant-design/icons'
+import { StarOutlined, GithubOutlined, ClockCircleOutlined, LinkOutlined } from '@ant-design/icons'
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { useAppSelector } from '../../hooks/useAppSelector'
@@ -16,35 +16,35 @@ const RepositoriesTable = () => {
 
   const columns = [ 
   {
-    title: 'Repository name',
+    title: <IconText icon={GithubOutlined} text="Repository name" />,
     dataIndex: 'name',
-    key: 'id',
+    key: 'name',
     render: (text: any) => 
-    <Link to={`/repository/${repositories[repositories.findIndex(item => item.name == text)].id}`}>
-    {text}
-    </Link>,
+      <Link to={`/repository/${repositories[repositories.findIndex(item => item.name == text)].id}`}>
+        {text}
+      </Link>
   },
   {
     title: <IconText icon={StarOutlined} text="Stars" key="list-vertical-star-o"/>,
     dataIndex: 'stargazers_count',
-    key: 'id'       
+    key: 'stargazers_count'      
   },  
   {
-    title: 'Updated on',
+    title: <IconText icon={ClockCircleOutlined} text="Updated on" />,
     dataIndex: 'pushed_at',
-    key: 'id',
+    key: 'pushed_at',
     render: (text: any) => new Date(text).toDateString()
   },
   {
-    title: 'Github URL adress',
+    title: <IconText icon={LinkOutlined} text="Github URL address" />,
     dataIndex: 'html_url',
-    key: 'id',
+    key: 'html_url',
     render: (text: any) => <a href={text} target='_blank'>{text}</a>
   }]
 
   return (
     <div style={{margin: "10px auto", width: "90%"}}>
-      <Table columns={columns} dataSource={repositories} pagination={false} />  
+      <Table columns={columns} dataSource={repositories} pagination={false} rowKey={repo => repo.id}/>  
     </div>      
   )
 }

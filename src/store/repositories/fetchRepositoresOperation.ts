@@ -1,4 +1,4 @@
-import SwapiService from "../../services/swapiService/SwapiService"
+import GithubService from "../../services/swapiService/GithubService"
 import {
     fetchRepositories,
     fetchRepositoriesError,
@@ -9,7 +9,7 @@ import {
 
 export const fetchRepositoriesOperation = (pageNumber: number) => async (dispatch: any) => {
     try {
-        const resp: any = await SwapiService.getRepositories(pageNumber)
+        const resp: any = await GithubService.getRepositories(pageNumber)
         dispatch(fetchRepositories())
         console.log(resp);
 
@@ -23,7 +23,7 @@ export const fetchRepositoriesOperation = (pageNumber: number) => async (dispatc
 export const searchRepositoriesOperation = (page: number = 1, search: string = "") => async (dispatch: any) => {
     try {
         dispatch(setSearchRepositories(search))
-        const resp: any = await SwapiService.searchRepositories(page, search)
+        const resp: any = await GithubService.searchRepositories(page, search)
 
         dispatch(fetchRepositoriesSuccess(resp.items))
         dispatch(setRepositoriesCount(resp.total_count))

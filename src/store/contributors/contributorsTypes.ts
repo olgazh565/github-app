@@ -1,7 +1,8 @@
 export enum ContributorsActionTypes {
     FETCH_CONTRIBUTORS = 'FETCH_CONTRIBUTORS',
     FETCH_CONTRIBUTORS_SUCCESS = 'FETCH_CONTRIBUTORS_SUCCESS',
-    FETCH_CONTRIBUTORS_ERROR = 'FETCH_CONTRIBUTORS_ERROR'
+    FETCH_CONTRIBUTORS_ERROR = 'FETCH_CONTRIBUTORS_ERROR',
+    CLEAR_CONTRIBUTORS_DATA = 'CLEAR_CONTRIBUTORS_DATA'
 }
 export interface Icontributors {
     login: string,
@@ -26,7 +27,11 @@ export interface FetchContributorsError {
     type: ContributorsActionTypes.FETCH_CONTRIBUTORS_ERROR,
     payload: string | undefined
 }
+export interface ClearContributorsData {
+    type: ContributorsActionTypes.CLEAR_CONTRIBUTORS_DATA,
+}
 export type ContributorsAction = 
 | FetchContributors
 | FetchContributorsSuccess
 | FetchContributorsError
+| ClearContributorsData

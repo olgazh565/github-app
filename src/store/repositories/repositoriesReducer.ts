@@ -24,7 +24,8 @@ export const repositoriesReducer = (state: RepositoriesState = initialState, act
             return {...state, pageNumber: action.payload}    
         case RepositoriesActionTypes.SET_SEARCH_REPOSITORIES:
             return {...state, search: action.payload, loading: true, error: undefined}
-      
+        case RepositoriesActionTypes.CLEAR_SEARCH_DATA:
+            return {...state, search: ''}
         default:
             return state
     }

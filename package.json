@@ -2,7 +2,7 @@
   "name": "github-app",
   "version": "0.1.0",
   "private": false,
-  "homepage": "https://olgazh565.github.io/github-app",
+  "homepage": "https://olgazh565.github.io",
   "dependencies": {
     "@redux-devtools/extension": "^3.2.2",
     "@testing-library/jest-dom": "^5.16.4",

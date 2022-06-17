@@ -1,4 +1,4 @@
-import GithubService from "../../services/swapiService/GithubService";
+import GithubService from "../../services/githubService/GithubService";
 import { fetchContributors, fetchContributorsError, fetchContributorsSuccess } from "./contributorsActionCreator";
 
 export const fetchContributorsOperation = (id: number) => async (dispatch: any) => {

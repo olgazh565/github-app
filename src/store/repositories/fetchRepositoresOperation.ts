@@ -1,4 +1,4 @@
-import GithubService from "../../services/swapiService/GithubService"
+import GithubService from "../../services/githubService/GithubService"
 import {
     fetchRepositories,
     fetchRepositoriesError,

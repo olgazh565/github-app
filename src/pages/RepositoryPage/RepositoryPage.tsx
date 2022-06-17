@@ -47,7 +47,7 @@ const RepositoryPage = () => {
                     <Card
                         title={<div>
                                     <IconText icon={GithubOutlined} text="Repository:" />
-                                    &nbsp;&nbsp;{repo.name} 
+                                    &nbsp;&nbsp;<a href={repo.html_url} target='_blank'>{repo.name}</a>  
                                </div>}
                         extra={<Link to={`/`}>
                                     Go back

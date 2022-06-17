@@ -11,7 +11,7 @@ export const fetchRepoPageOperation = (id: number) => async (dispatch: any) => {
         dispatch(fetchRepoPage(id))
         const resp: any = await GithubService.getRepoPage(id)
         
-        // console.log(resp);  
+        console.log(resp);  
         dispatch(fetchRepoSuccess(resp))        
     }
     catch (e) {
